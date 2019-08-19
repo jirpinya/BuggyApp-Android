@@ -23,7 +23,9 @@ class SongAdapter(private val listener: OnSongClickListener)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = SongItemViewHolder(parent)
 
     override fun onBindViewHolder(holder: SongItemViewHolder, position: Int) {
-        holder.bind(_songs[position], listener)
+        if (position < _songs.size) {
+            holder.bind(_songs[position], listener)
+        }
     }
 
     override fun getItemCount(): Int {
